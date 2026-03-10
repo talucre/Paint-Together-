@@ -1,12 +1,24 @@
 import '@/styles/canvas.scss'
+import { observer } from 'mobx-react-lite'
+import { useEffect, useRef } from 'react'
+import canvasState from '@/store/canvasState.ts'
+import toolState from '@/store/toolState.ts'
+import Brush from '@/tools/Brush.ts'
 
-const Canvas = () => {
+const Canvas = observer(() => {
+    const canvasRef = useRef<HTMLCanvasElement>(null)
+
+    useEffect(() => {
+        canvasState.setCanvas(canvasRef.current)
+        toolState.setTool(new Brush(canvasRef.current!))
+    }, [])
+
     return (
         <div className="canvas">
             {/* Need to specify size directly for correct displaying */}
-            <canvas width={600} height={400} />
+            <canvas ref={canvasRef} width={600} height={400} />
         </div>
     )
-}
+})
 
 export default Canvas
