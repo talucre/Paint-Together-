@@ -5,8 +5,9 @@ export default class Eraser extends Tool {
 
     constructor(canvas: HTMLCanvasElement) {
         super(canvas)
-        this.ctx.strokeStyle = '#FFF'
         this.listen()
+
+        this.ctx.strokeStyle = '#FFF'
     }
 
     listen() {

@@ -5,7 +5,6 @@ export default class Brush extends Tool {
 
     constructor(canvas: HTMLCanvasElement) {
         super(canvas)
-        this.ctx.strokeStyle = '#000'
         this.listen()
     }
 
