@@ -8,7 +8,7 @@ class CanvasState {
     }
 
     // @ts-ignore
-    setCanvas(canvas: HTMLCanvasElement | null) {
+    setCanvas(canvas: HTMLCanvasElement) {
         this.canvas = canvas
     }
 }
