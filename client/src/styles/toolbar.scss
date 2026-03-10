@@ -1,0 +1,12 @@
+@use 'variables';
+
+.toolbar {
+    height: variables.$toolbar-height;
+    background: white;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    box-shadow: variables.$shadow;
+    z-index: 999;
+}
