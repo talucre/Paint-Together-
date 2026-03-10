@@ -4,6 +4,7 @@ import Brush from '@/tools/Brush.ts'
 import canvasState from '@/store/canvasState.ts'
 import Rect from '@/tools/Rect.ts'
 import Circle from '@/tools/Circle.ts'
+import Eraser from '@/tools/Eraser.ts'
 
 const Toolbar = () => {
     return (
@@ -24,7 +25,12 @@ const Toolbar = () => {
                     toolState.setTool(new Circle(canvasState.canvas!))
                 }
             ></button>
-            <button className="toolbar__btn eraser"></button>
+            <button
+                className="toolbar__btn eraser"
+                onClick={() =>
+                    toolState.setTool(new Eraser(canvasState.canvas!))
+                }
+            ></button>
             <button className="toolbar__btn line"></button>
             <input type="color" className="color-picker" />
             <button className="toolbar__btn undo"></button>

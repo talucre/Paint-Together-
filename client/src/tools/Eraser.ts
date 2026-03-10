@@ -1,11 +1,11 @@
 import Tool from '@/tools/Tool.ts'
 
-export default class Brush extends Tool {
+export default class Eraser extends Tool {
     mouseDown: boolean = false
 
     constructor(canvas: HTMLCanvasElement) {
         super(canvas)
-        this.ctx.strokeStyle = '#000'
+        this.ctx.strokeStyle = '#FFF'
         this.listen()
     }
 
