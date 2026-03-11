@@ -1,24 +1,24 @@
 import Tool from '@/tools/Tool.ts'
 
 export default class Brush extends Tool {
-    mouseDown: boolean = false
+    private mouseDown: boolean = false
 
     constructor(canvas: HTMLCanvasElement) {
         super(canvas)
         this.listen()
     }
 
-    listen() {
+    private listen() {
         this.canvas.onmousemove = this.mouseMoveHandler.bind(this)
         this.canvas.onmousedown = this.mouseDownHandler.bind(this)
         this.canvas.onmouseup = this.mouseUpHandler.bind(this)
     }
 
-    mouseUpHandler(_e: MouseEvent) {
+    private mouseUpHandler(_e: MouseEvent) {
         this.mouseDown = false
     }
 
-    mouseDownHandler(e: MouseEvent) {
+    private mouseDownHandler(e: MouseEvent) {
         this.mouseDown = true
         this.ctx.beginPath()
         this.ctx.moveTo(
@@ -27,7 +27,7 @@ export default class Brush extends Tool {
         )
     }
 
-    mouseMoveHandler(e: MouseEvent) {
+    private mouseMoveHandler(e: MouseEvent) {
         if (this.mouseDown) {
             this.draw(
                 e.pageX - this.canvas.offsetLeft,
@@ -36,7 +36,7 @@ export default class Brush extends Tool {
         }
     }
 
-    draw(x: number, y: number) {
+    private draw(x: number, y: number) {
         this.ctx.lineTo(x, y)
         this.ctx.stroke()
     }

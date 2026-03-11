@@ -1,7 +1,7 @@
 import Tool from '@/tools/Tool.ts'
 
 export default class Eraser extends Tool {
-    mouseDown: boolean = false
+    private mouseDown: boolean = false
 
     constructor(canvas: HTMLCanvasElement) {
         super(canvas)
@@ -10,17 +10,17 @@ export default class Eraser extends Tool {
         this.ctx.strokeStyle = '#FFF'
     }
 
-    listen() {
+    private listen() {
         this.canvas.onmousemove = this.mouseMoveHandler.bind(this)
         this.canvas.onmousedown = this.mouseDownHandler.bind(this)
         this.canvas.onmouseup = this.mouseUpHandler.bind(this)
     }
 
-    mouseUpHandler(_e: MouseEvent) {
+    private mouseUpHandler(_e: MouseEvent) {
         this.mouseDown = false
     }
 
-    mouseDownHandler(e: MouseEvent) {
+    private mouseDownHandler(e: MouseEvent) {
         this.mouseDown = true
         this.ctx.beginPath()
         this.ctx.moveTo(
@@ -29,7 +29,7 @@ export default class Eraser extends Tool {
         )
     }
 
-    mouseMoveHandler(e: MouseEvent) {
+    private mouseMoveHandler(e: MouseEvent) {
         if (this.mouseDown) {
             this.draw(
                 e.pageX - this.canvas.offsetLeft,
@@ -38,7 +38,7 @@ export default class Eraser extends Tool {
         }
     }
 
-    draw(x: number, y: number) {
+    private draw(x: number, y: number) {
         this.ctx.lineTo(x, y)
         this.ctx.stroke()
     }

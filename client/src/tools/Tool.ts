@@ -1,6 +1,6 @@
 export default class Tool {
-    canvas: HTMLCanvasElement
-    ctx: CanvasRenderingContext2D
+    protected readonly canvas: HTMLCanvasElement
+    protected readonly ctx: CanvasRenderingContext2D
 
     constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas
@@ -10,7 +10,7 @@ export default class Tool {
         this.destroyEvents()
     }
 
-    destroyEvents() {
+    private destroyEvents() {
         this.canvas.onmousemove = null
         this.canvas.onmousedown = null
         this.canvas.onmouseup = null

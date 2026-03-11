@@ -7,8 +7,7 @@ class CanvasState {
         makeAutoObservable(this)
     }
 
-    // @ts-ignore
-    setCanvas(canvas: HTMLCanvasElement) {
+    setCanvas(canvas: HTMLCanvasElement | null) {
         this.canvas = canvas
     }
 }

@@ -6,11 +6,11 @@ import toolState from '@/store/toolState.ts'
 import Brush from '@/tools/Brush.ts'
 
 const Canvas = observer(() => {
-    const canvasRef = useRef<HTMLCanvasElement>(null)
+    const canvasRef = useRef<HTMLCanvasElement>(null!)
 
     useEffect(() => {
-        canvasState.setCanvas(canvasRef.current!)
-        toolState.setTool(new Brush(canvasRef.current!))
+        canvasState.setCanvas(canvasRef.current)
+        toolState.setTool(new Brush(canvasRef.current))
     }, [])
 
     return (

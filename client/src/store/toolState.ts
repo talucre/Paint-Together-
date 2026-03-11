@@ -8,8 +8,7 @@ class ToolState {
         makeAutoObservable(this)
     }
 
-    // @ts-ignore
-    setTool(tool: Tool) {
+    setTool(tool: Tool | null) {
         this.tool = tool
     }
 }
