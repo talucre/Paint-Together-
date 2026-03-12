@@ -6,8 +6,14 @@ import Rect from '@/tools/Rect.ts'
 import Circle from '@/tools/Circle.ts'
 import Eraser from '@/tools/Eraser.ts'
 import Line from '@/tools/Line.ts'
+import type { ChangeEvent } from 'react'
 
 const Toolbar = () => {
+    const changeColor = (e: ChangeEvent<HTMLInputElement>) => {
+        toolState.setStrokeColor(e.target.value)
+        toolState.setFillColor(e.target.value)
+    }
+
     return (
         <div className="toolbar">
             <button
@@ -36,7 +42,11 @@ const Toolbar = () => {
                 className="toolbar__btn line"
                 onClick={() => toolState.setTool(new Line(canvasState.canvas!))}
             ></button>
-            <input type="color" className="color-picker" />
+            <input
+                onChange={changeColor}
+                type="color"
+                className="color-picker"
+            />
             <button className="toolbar__btn undo"></button>
             <button className="toolbar__btn redo"></button>
             <button className="toolbar__btn save"></button>

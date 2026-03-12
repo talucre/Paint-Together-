@@ -36,7 +36,7 @@ export default class Brush extends Tool {
         }
     }
 
-    private draw(x: number, y: number) {
+    protected draw(x: number, y: number) {
         this.ctx.lineTo(x, y)
         this.ctx.stroke()
     }
